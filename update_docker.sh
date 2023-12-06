@@ -1,13 +1,13 @@
 #!/bin/bash
 
-#VERIFICA SE O SCRIPT ESTÁ SENDO EXECUTADO EM MODO ROOT
-if [ "$EUID" -ne 0 ]
-  then echo "Por favor, execute o script em modo root (sudo su)"
-  exit;
+# VERIFICA SE O SCRIPT ESTÁ SENDO EXECUTADO EM MODO ROOT
+if [ "$EUID" -ne 0 ]; then
+  echo "Por favor, execute o script em modo root (sudo su)"
+  exit
 fi
 
 clear
-echo "Atualizando o docker:"
+echo "Atualizando o Docker:"
 
 sudo apt-get remove docker docker-engine docker.io containerd runc -y
 sudo apt-get update -y
@@ -17,10 +17,10 @@ echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] 
 sudo apt-get update -y
 sudo apt-get install docker-ce docker-ce-cli containerd.io -y
 
-echo "Atualizando o docker compose"
+echo "Atualizando o Docker Compose"
 
-sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose -y
-sudo chmod +x /usr/local/bin/docker-compose -y
+sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
 
 echo
 echo "Docker atualizado."
