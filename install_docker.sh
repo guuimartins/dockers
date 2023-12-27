@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# VERIFICA SE O SCRIPT ESTÁ SENDO EXECUTADO EM MODO ROOT
+if [ "$EUID" -ne 0 ]; then
+  echo "Por favor, execute o script em modo root (sudo su)"
+  exit
+fi
+
 clear
 # Instalando o Docker
 echo "Instalando o Docker"
