@@ -7,6 +7,9 @@ if [ "$EUID" -ne 0 ]; then
 fi
 
 clear
+
+sudo apt-get update -y
+
 echo "Atualizando o Docker:"
 
 sudo apt-get remove docker docker-engine docker.io containerd runc -y
