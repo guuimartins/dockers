@@ -50,3 +50,6 @@ sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 # Verificar a instalação
 docker --version
 docker-compose --version
+
+sudo usermod -aG docker $USER
+newgrp docker
